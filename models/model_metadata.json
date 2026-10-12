@@ -1,0 +1,226 @@
+{
+  "trained_on": "2026-10-12",
+  "sklearn_version": "1.7.2",
+  "dataset": {
+    "file": "loan_approval_dataset.csv",
+    "rows": 4269,
+    "approved_share": 0.6222
+  },
+  "raw_input_columns": [
+    "no_of_dependents",
+    "education",
+    "self_employed",
+    "income_annum",
+    "loan_amount",
+    "loan_term",
+    "cibil_score",
+    "residential_assets_value",
+    "commercial_assets_value",
+    "luxury_assets_value",
+    "bank_asset_value"
+  ],
+  "categorical_values": {
+    "education": [
+      "Graduate",
+      "Not Graduate"
+    ],
+    "self_employed": [
+      "No",
+      "Yes"
+    ]
+  },
+  "classifier": {
+    "name": "GradientBoosting",
+    "best_params": {
+      "model__learning_rate": 0.1,
+      "model__max_depth": 3,
+      "model__n_estimators": 200
+    },
+    "threshold": 0.3,
+    "cost_assumption": {
+      "false_approval": 5,
+      "false_rejection": 1
+    },
+    "test_metrics": {
+      "accuracy": 1.0,
+      "precision_approved": 1.0,
+      "recall_approved": 1.0,
+      "recall_rejected": 1.0,
+      "f1_approved": 1.0,
+      "false_approvals": 0.0,
+      "false_rejections": 0.0
+    },
+    "test_roc_auc": 1.0
+  },
+  "regressor": {
+    "name": "GradientBoosting",
+    "best_params": {
+      "model__learning_rate": 0.1,
+      "model__max_depth": 3,
+      "model__n_estimators": 100
+    },
+    "log_target": false,
+    "test_MAE": 2502112.2,
+    "test_R2": 0.87
+  },
+  "imputation_plan_classifier": [
+    {
+      "column": "no_of_dependents",
+      "skew": -0.031,
+      "n_unique": 6,
+      "strategy": "most_frequent"
+    },
+    {
+      "column": "income_annum",
+      "skew": -0.015,
+      "n_unique": 98,
+      "strategy": "mean"
+    },
+    {
+      "column": "loan_amount",
+      "skew": 0.305,
+      "n_unique": 376,
+      "strategy": "mean"
+    },
+    {
+      "column": "loan_term",
+      "skew": 0.045,
+      "n_unique": 10,
+      "strategy": "most_frequent"
+    },
+    {
+      "column": "cibil_score",
+      "skew": -0.002,
+      "n_unique": 600,
+      "strategy": "mean"
+    },
+    {
+      "column": "residential_assets_value",
+      "skew": 0.969,
+      "n_unique": 272,
+      "strategy": "median"
+    },
+    {
+      "column": "commercial_assets_value",
+      "skew": 0.97,
+      "n_unique": 186,
+      "strategy": "median"
+    },
+    {
+      "column": "luxury_assets_value",
+      "skew": 0.318,
+      "n_unique": 375,
+      "strategy": "mean"
+    },
+    {
+      "column": "bank_asset_value",
+      "skew": 0.568,
+      "n_unique": 146,
+      "strategy": "median"
+    },
+    {
+      "column": "total_assets",
+      "skew": 0.29,
+      "n_unique": 745,
+      "strategy": "mean"
+    },
+    {
+      "column": "income_per_dependent",
+      "skew": 1.947,
+      "n_unique": 374,
+      "strategy": "median"
+    },
+    {
+      "column": "loan_to_income",
+      "skew": -0.03,
+      "n_unique": 1875,
+      "strategy": "mean"
+    },
+    {
+      "column": "assets_to_loan",
+      "skew": 0.682,
+      "n_unique": 2873,
+      "strategy": "median"
+    },
+    {
+      "column": "annual_repayment_to_income",
+      "skew": 2.053,
+      "n_unique": 2743,
+      "strategy": "median"
+    }
+  ],
+  "imputation_plan_regressor": [
+    {
+      "column": "no_of_dependents",
+      "skew": -0.019,
+      "n_unique": 6,
+      "strategy": "most_frequent"
+    },
+    {
+      "column": "income_annum",
+      "skew": 0.01,
+      "n_unique": 98,
+      "strategy": "mean"
+    },
+    {
+      "column": "loan_term",
+      "skew": 0.134,
+      "n_unique": 10,
+      "strategy": "most_frequent"
+    },
+    {
+      "column": "cibil_score",
+      "skew": -0.669,
+      "n_unique": 457,
+      "strategy": "median"
+    },
+    {
+      "column": "residential_assets_value",
+      "skew": 1.014,
+      "n_unique": 267,
+      "strategy": "median"
+    },
+    {
+      "column": "commercial_assets_value",
+      "skew": 0.955,
+      "n_unique": 182,
+      "strategy": "median"
+    },
+    {
+      "column": "luxury_assets_value",
+      "skew": 0.347,
+      "n_unique": 363,
+      "strategy": "mean"
+    },
+    {
+      "column": "bank_asset_value",
+      "skew": 0.578,
+      "n_unique": 143,
+      "strategy": "median"
+    },
+    {
+      "column": "total_assets",
+      "skew": 0.326,
+      "n_unique": 694,
+      "strategy": "mean"
+    },
+    {
+      "column": "income_per_dependent",
+      "skew": 1.927,
+      "n_unique": 368,
+      "strategy": "median"
+    }
+  ],
+  "policy": {
+    "min_cibil": 550,
+    "max_foir": 0.5,
+    "interest_rate_pa": 0.095,
+    "min_tenure_years": 1,
+    "max_tenure_years": 7,
+    "max_loan_to_income": 3.9,
+    "max_loan_amount": 5000000,
+    "min_loan_amount": 100000,
+    "rounding": 10000,
+    "max_ltv": 0.85
+  }
+}

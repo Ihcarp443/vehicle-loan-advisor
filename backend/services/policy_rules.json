@@ -1,0 +1,14 @@
+{
+  "rules": {
+    "minimum_credit_score": {"section": "3.2", "threshold": 550, "applies_to": "all"},
+    "obligation_limit": {"section": "4.1", "threshold": 0.50, "applies_to": "all"},
+    "obligation_limit_self_employed": {"section": "4.2", "threshold": 0.45, "applies_to": "self_employed"},
+    "income_multiple_cap": {"section": "5.2", "threshold": 5.17, "applies_to": "all"},
+    "loan_amount_limits": {"section": "5.3", "min": 100000, "max": 5000000, "applies_to": "all"},
+    "tenure_range": {"section": "6.1", "min_years": 1, "max_years": 7, "applies_to": "all"},
+    "max_ltv": {"section": "7.1", "threshold": 0.85, "applies_to": "all"},
+    "interest_rate": {"section": "8.1", "annual_rate": 0.095, "applies_to": "all"},
+    "model_risk_score": {"section": "9.1", "applies_to": "all"}
+  },
+  "policy_file": "vehicle_loan_policy.md"
+}
